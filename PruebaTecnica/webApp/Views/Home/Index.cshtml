@@ -1,0 +1,36 @@
+﻿@model List<webApp.Models.Categoria>
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <a asp-action="Insertar" asp-controller="Home" class="btn btn-success btn-sm">Agregar Categoria</a>
+    <br />
+    <br />
+    <select asp-items="@(new SelectList(Model,"Idcategoria","Categoria1"))" class="form-control">
+        <option value="">-- Seleccione una Categoría --</option>
+    </select>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Categoria</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            
+            @foreach(var item in Model)
+            {
+                <tr>
+                    <td>@item.Categoria1</td>
+                    <td>
+                        <a class="btn btn-primary btn-sm " asp-action="Editar" asp-controller="Home" asp-route-Idcategoria="@item.Idcategoria"> Editar</a>
+                        <a class="btn btn-danger btn-sm " asp-action="Eliminar" asp-controller="Home" asp-route-Idcategoria="@item.Idcategoria"> Eliminar</a>
+                       <!-- <input type="text" class="form-control" id="Categoria1" name="categoria" required />-->
+                    </td>
+                </tr>
+            }
+        </tbody>
+        </table>
+</div>

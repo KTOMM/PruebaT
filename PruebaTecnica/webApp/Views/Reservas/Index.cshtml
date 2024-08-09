@@ -1,0 +1,44 @@
+﻿@model List<webApp.Models.ProductoVM>
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <a asp-action="Insertar" asp-controller="Productos" class="btn btn-success btn-sm">Agregar Producto</a>
+    <br />
+    <br />
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Producto</th>
+                <th>Descripcion</th>
+                <th>Precio</th>
+                <th>Existencia</th>
+                <th>Fecha de Ingreso</th>
+                <th>Categoria</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.Producto1</td>
+                    <td>@item.Descripcion</td>
+                    <td>@item.Precio</td>
+                    <td>@item.Existencia</td>
+                    <td>@item.FechaIng</td>
+                    <td>@item.Categoria</td>
+
+                    <td>
+                        <a class="btn btn-primary btn-sm " asp-action="Editar" asp-controller="Productos" asp-route-IdProducto="@item.IdProducto"> Editar</a>
+                        <a class="btn btn-danger btn-sm " asp-action="Eliminar" asp-controller="Productos" asp-route-IdProducto="@item.IdProducto"> Eliminar</a>
+                        <!-- <input type="text" class="form-control" id="Categoria1" name="categoria" required />-->
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

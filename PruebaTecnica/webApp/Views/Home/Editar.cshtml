@@ -1,0 +1,8 @@
+﻿@model webApp.Models.Categoria
+<form asp-action="Editar" asp-controller="Home" method="post">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <label for="Categoria1">Categoría:</label>
+    <input asp-for="Categoria1" class="form-control" />
+    <span asp-validation-for="Categoria1" class="text-danger"></span><br />
+    <button type="submit" value="Editar" class="btn btn-primary btn-sm mt-2">Guardar Cambios</button>
+</form>

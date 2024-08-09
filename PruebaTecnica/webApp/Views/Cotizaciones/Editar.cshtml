@@ -1,0 +1,21 @@
+﻿@model webApp.Models.Cotizacione
+
+<form asp-action="Editar" asp-controller="Cotizaciones" method="post">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    < <label for="FechaCotizacion">FechaCotizacion:</label>
+    <input asp-for="FechaCotizacion" class="form-control" />
+
+    <label for="Total">Total:</label>
+    <input asp-for="Total" class="form-control" />
+
+    <label for="Cliente">Cliente:</label>
+    <input asp-for="Cliente" class="form-control" />
+
+    <label for="Estado">Estado:</label>
+    <input asp-for="Estado" class="form-control" />
+
+    <label for="idproducto">Produto:</label>
+    <input asp-for="Idproducto" class="form-control" />
+
+    <button type="submit" value="Editar" class="btn btn-primary btn-sm mt-2">Editar</button>
+</form>

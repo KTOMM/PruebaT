@@ -1,0 +1,27 @@
+﻿@model webApp.Models.Producto
+@{
+    List<Categoria> lcategorias = ViewData["Categorias"] as List<Categoria>;
+}
+<form asp-action="Editar" asp-controller="Productos" method="post">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <label for="Producto1">Producto:</label>
+    <input asp-for="Producto1" class="form-control" />
+    <span asp-validation-for="Producto1" class="text-danger"></span><br />
+
+    <label for="Descripcion">Descripción:</label>
+    <input asp-for="Descripcion" class="form-control" />
+
+    <label for="Precio">Precio:</label>
+    <input asp-for="Precio" class="form-control" />
+
+    <label for="Existencia">Existencia:</label>
+    <input asp-for="Existencia" class="form-control" />
+
+    <label for="Fecha_ing">Fecha de Ingreso:</label>
+    <input asp-for="FechaIng" class="form-control" />
+    <label asp-for="Idcategoria"></label>
+    <select asp-items="@(new SelectList(lcategorias,"Idcategoria","Categoria1",Model.Idcategoria))" asp-for="Idcategoria" class="form-control">
+        <option value="">-- Seleccione una Categoría --</option>
+    </select>
+    <button type="submit" value="Editar" class="btn btn-primary btn-sm mt-2">Editar</button>
+</form>

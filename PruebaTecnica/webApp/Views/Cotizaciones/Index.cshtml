@@ -1,0 +1,44 @@
+﻿@model List<webApp.Models.Cotizacione>
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <a asp-action="Insertar" asp-controller="Cotizaciones" class="btn btn-success btn-sm">Agregar Cotizaciones</a>
+    <br />
+    <br />
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Numero de Cotizacioin</th>
+                <th>Fecha de cotizacion</th>
+                <th>Total</th>
+                <th>Cliente</th>
+                <th>Estado</th>
+                <th>idproducto</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.Idcotizaciones</td>
+                    <td>@item.FechaCotizacion</td>
+                    <td>@item.Total</td>
+                    <td>@item.Cliente</td>
+                    <td>@item.Estado</td>
+                    <td>@item.Idproducto</td>
+
+                    <td>
+                        <a class="btn btn-primary btn-sm " asp-action="Editar" asp-controller="Cotizaciones" asp-route-IdCotizacione="@item.Idcotizaciones"> Editar</a>
+                        <a class="btn btn-danger btn-sm " asp-action="Eliminar" asp-controller="Cotizaciones" asp-route-IdCotizacione="@item.Idcotizaciones"> Eliminar</a>
+                        <!-- <input type="text" class="form-control" id="Categoria1" name="categoria" required />-->
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
